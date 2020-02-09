@@ -1,0 +1,14 @@
+<h3>Student Scores</h3>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Score</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of scores">
+      <td>{{item.name}}</td>
+      <td>{{item.score | percent: '.0-0'}}</td>
+    </tr>
+  </tbody>
+</table>

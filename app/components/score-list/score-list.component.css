@@ -1,0 +1,14 @@
+table{
+  border: 1px solid #eee;
+  border-collapse: collapse;
+}
+
+tr:nth-child(odd){
+  background: #eee;
+}
+
+td, th{
+  padding: 12px 24px;
+  text-align: left;
+}
+
