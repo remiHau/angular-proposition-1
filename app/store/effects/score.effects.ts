@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { mergeMap, map, catchError } from 'rxjs/operators';
 
-import { ScoreService } from '../../services/score.service';
 
 import {
   AppState,
@@ -19,23 +18,6 @@ import {
 export class ScoreEffects {
   constructor(
     private action$: Actions,
-    private store: Store<AppState>,
-    private scoreService: ScoreService
+    private store: Store<AppState>
   ) {}
-
-  @Effect()
-  getScoreEffect$: Observable<Action> = this.action$
-    .pipe(
-      ofType(LOAD_SCORE),
-      mergeMap(()=>{
-        return this.scoreService.fetchScore()
-          .pipe(
-            map(scores => {
-              const mappedScores = this.scoreService.mapScores(scores.json());
-              return new LoadScoreSuccess(mappedScores);
-            }),
-            catchError(error=>of(new LoadScoreFail()))
-          )
-      })
-    )
 }

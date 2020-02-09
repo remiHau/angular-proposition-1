@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // dispatch action
-    this.store.dispatch(new fromScoreActions.LoadScore());
+    this.scoreService.fetchScore();
     
     // select query
     this.scores$ = this.store.pipe(
