@@ -22,24 +22,12 @@ export function reducer(
     case fromScore.LOAD_SCORE: {
       return {
         ...state,
-        loading: true
-      }
-    }
-    case fromScore.LOAD_SCORE_SUCCESS: {
-      return {
-        ...state,
         loading: false,
         loaded: true,
         data: action.payload
       }
     }
-    case fromScore.LOAD_SCORE_FAIL: {
-      return {
-        ...state,
-        loading: false,
-        loaded: false
-      }
-    }
+  
   }
 
   return state;

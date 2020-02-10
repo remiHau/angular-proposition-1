@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   name = 'ngrx';
 
   constructor(
-    private store: Store<AppState>,
     private scoreService: ScoreService
   ) {
 
@@ -30,8 +29,6 @@ export class AppComponent implements OnInit {
     this.scoreService.fetchScore();
     
     // select query
-    this.scores$ = this.store.pipe(
-      select(fromScoreSelectors.getScore)
-    );
+    this.scores$ = this.scoreService.getResultObservable();
   }
 }
